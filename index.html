@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K&K Mobile Bar - Premium Bartending Services</title>
+    <style>
+        :root {
+            --primary: #9333ea;
+            --secondary: #ec4899;
+            --light: #f5f5f5;
+            --dark: #1f2937;
+            --accent: #fbbf24;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .book-btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .book-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+        }
+        
+        .hero img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #6b7280;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #6b7280;
+        }
+        
+        .hero-btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .hero-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-desc {
+            color: #6b7280;
+        }
+        
+        /* What We Provide Section */
+        .what-we-provide {
+            padding: 60px 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .what-we-provide .section-title {
+            color: white;
+        }
+        
+        .what-we-provide .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .provide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .provide-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .provide-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .provide-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Packages Section */
+        .packages {
+            padding: 60px 0;
+            background: #f9fafb;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .package-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .package-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .package-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .package-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .package-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .package-features li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .select-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            transition: background 0.3s;
+        }
+        
+        .select-btn:hover {
+            background: #7c25d0;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #6b7280;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .testimonial-event {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-btn {
+            background: white;
+            color: var(--primary);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .package-card {
+                padding: 20px;
+            }
+            
+            .package-title {
+                font-size: 1.2rem;
+            }
+            
+            .package-price {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://placehold.co/100x100/FF69B4/FFFFFF?text=K%26K%20Logo" alt="K&K Mobile Bar Logo">
+                    <h1>K&K Mobile Bar</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#contact" class="book-btn">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <img src="https://placehold.co/100x100/FF69B4/FFFFFF?text=K%26K%20Logo" alt="K&K Mobile Bar Logo">
+            <h2>Premium Mobile Bartending</h2>
+            <p>We bring the bar to you! Professional bartending services for weddings, corporate events, parties, and more. You supply the venue, we supply everything else.</p>
+            <div class="features">
+                <div class="feature">
+                    <span>👥</span>
+                    <span>Any Group Size</span>
+                </div>
+                <div class="feature">
+                    <span>⏰</span>
+                    <span>Flexible Hours</span>
+                </div>
+                <div class="feature">
+                    <span>📍</span>
+                    <span>Serving Your Area</span>
+                </div>
+            </div>
+            <a href="#packages" class="hero-btn">View Packages</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Professional bartending for every occasion</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💍</div>
+                    <h3 class="service-title">Weddings</h3>
+                    <p class="service-desc">Make your special day unforgettable with our professional bartending services. We handle everything from setup to cleanup.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3 class="service-title">Corporate Events</h3>
+                    <p class="service-desc">Impress your clients and colleagues with premium beverage service that reflects your company's professionalism.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3 class="service-title">Social Parties</h3>
+                    <p class="service-desc">Birthdays, anniversaries, or just because - we'll make your party the talk of the town.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3 class="service-title">Special Events</h3>
+                    <p class="service-desc">Festivals, galas, fundraisers - we provide scalable solutions for any special occasion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Provide Section -->
+    <section class="what-we-provide">
+        <div class="container">
+            <h2 class="section-title">What We Provide</h2>
+            <p class="section-subtitle">Everything you need for a perfect event</p>
+            <div class="provide-grid">
+                <div class="provide-item">
+                    <div class="provide-icon">✅</div>
+                    <h3 class="provide-title">Full Bar Setup</h3>
+                    <p>Premium spirits, mixers, juices, and all necessary bar tools</p>
+                </div>
+                <div class="provide-item">
+                    <div class="provide-icon">✅</div>
+                    <h3 class="provide-title">Serving Supplies</h3>
+                    <p>Disposable cups, straws, napkins, ice, and coolers</p>
+                </div>
+                <div class="provide-item">
+                    <div class="provide-icon">✅</div>
+                    <h3 class="provide-title">Professional Staff</h3>
+                    <p>Certified bartenders and bar backs for seamless service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <h2 class="section-title">Event Packages</h2>
+            <p class="section-subtitle">Choose the perfect package for your event size and duration</p>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3 class="package-title">Intimate Gathering</h3>
+                    <div class="package-details">
+                        <span>👥 1-50 guests</span>
+                        <span>⏰ 3 hours</span>
+                    </div>
+                    <div class="package-price">$800</div>
+                    <ul class="package-features">
+                        <li>Professional bartender (1)</li>
+                        <li>Full bar setup with premium spirits</li>
+                        <li>Mixers, juices, and garnishes</li>
+                        <li>Disposable cups, straws, napkins</li>
+                        <li>Ice and coolers</li>
+                        <li>Custom cocktail menu consultation</li>
+                        <li>Setup and cleanup included</li>
+                    </ul>
+                    <a href="#contact" class="select-btn">Select Package</a>
+                </div>
+                <div class="package-card">
+                    <div class="popular-tag">MOST POPULAR</div>
+                    <h3 class="package-title">Social Celebration</h3>
+                    <div class="package-details">
+                        <span>👥 51-100 guests</span>
+                        <span>⏰ 4 hours</span>
+                    </div>
+                    <div class="package-price">$1,200</div>
+                    <ul class="package-features">
+                        <li>Professional bartenders (2)</li>
+                        <li>Full bar setup with premium spirits</li>
+                        <li>Mixers, juices, and garnishes</li>
+                        <li>Disposable cups, straws, napkins</li>
+                        <li>Ice and coolers</li>
+                        <li>Custom cocktail menu consultation</li>
+                        <li>Setup and cleanup included</li>
+                        <li>Signature cocktail creation</li>
+                        <li>Bar back assistance</li>
+                    </ul>
+                    <a href="#contact" class="select-btn">Select Package</a>
+                </div>
+                <div class="package-card">
+                    <h3 class="package-title">Grand Event</h3>
+                    <div class="package-details">
+                        <span>👥 101-200 guests</span>
+                        <span>⏰ 5 hours</span>
+                    </div>
+                    <div class="package-price">$2,000</div>
+                    <ul class="package-features">
+                        <li>Professional bartenders (3)</li>
+                        <li>Full bar setup with premium spirits</li>
+                        <li>Mixers, juices, and garnishes</li>
+                        <li>Disposable cups, straws, napkins</li>
+                        <li>Ice and coolers</li>
+                        <li>Custom cocktail menu consultation</li>
+                        <li>Setup and cleanup included</li>
+                        <li>Signature cocktail creation</li>
+                        <li>Bar back assistance</li>
+                        <li>Multiple bar stations</li>
+                        <li>Premium glassware upgrade option</li>
+                    </ul>
+                    <a href="#contact" class="select-btn">Select Package</a>
+                </div>
+                <div class="package-card">
+                    <h3 class="package-title">Ultimate Experience</h3>
+                    <div class="package-details">
+                        <span>👥 200+ guests</span>
+                        <span>⏰ 6+ hours</span>
+                    </div>
+                    <div class="package-price">Custom Quote</div>
+                    <ul class="package-features">
+                        <li>Professional bartenders (4+)</li>
+                        <li>Full bar setup with premium spirits</li>
+                        <li>Mixers, juices, and garnishes</li>
+                        <li>Disposable cups, straws, napkins</li>
+                        <li>Ice and coolers</li>
+                        <li>Custom cocktail menu consultation</li>
+                        <li>Setup and cleanup included</li>
+                        <li>Signature cocktail creation</li>
+                        <li>Bar back assistance</li>
+                        <li>Multiple bar stations</li>
+                        <li>Premium glassware included</li>
+                        <li>Custom bar design consultation</li>
+                        <li>Dedicated event coordinator</li>
+                    </ul>
+                    <a href="#contact" class="select-btn">Select Package</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+                    <p class="testimonial-text">"K&K Mobile Bar made our wedding reception absolutely perfect! Our guests are still talking about the signature cocktails."</p>
+                    <p class="testimonial-author">Sarah & Michael</p>
+                    <p class="testimonial-event">Wedding</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+                    <p class="testimonial-text">"Professional, efficient, and incredibly knowledgeable. Our clients were thoroughly impressed with the service."</p>
+                    <p class="testimonial-author">TechCorp Events</p>
+                    <p class="testimonial-event">Corporate Gala</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+                    <p class="testimonial-text">"They handled everything seamlessly! The bartenders were friendly and the drinks were amazing."</p>
+                    <p class="testimonial-author">Jessica R.</p>
+                    <p class="testimonial-event">Birthday Party</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Ready to Book Your Event?</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <p>info@kkmobilebar.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <p>Serving Your Area</p>
+                </div>
+            </div>
+            <a href="#" class="contact-btn">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 K&K Mobile Bar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
